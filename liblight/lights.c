@@ -186,7 +186,7 @@ set_light_backlight_ext(struct light_device_t* dev,
     pthread_mutex_lock(&g_lock);
 
     if (brightness >= 0 && brightness <= g_brightness_max) {
-        set_brightness_ext_level(brightness);
+//        set_brightness_ext_level(brightness);
     }
 
     pthread_mutex_unlock(&g_lock);
@@ -362,7 +362,7 @@ static int open_lights(const struct hw_module_t* module, char const* name,
            !(strncmp(property, "true", PROPERTY_VALUE_MAX))) {
             property_get("persist.display.max_brightness", property, "255");
             g_brightness_max = atoi(property);
-            set_brightness_ext_init();
+//            set_brightness_ext_init();
             set_light = set_light_backlight_ext;
         } else
 #endif
